@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'true') == 'true'
 
-ALLOWED_HOSTS = ['https://library-management-6lf9.onrender.com']
+ALLOWED_HOSTS = ['library-management-6lf9.onrender.com']
 
 
 # Application definition
