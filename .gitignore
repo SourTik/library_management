@@ -25,6 +25,8 @@ __pycache__/
 staticfiles/
 media/
 
-# Django migrations (optional: ignore migrations except __init__.py)
-**/migrations/*.py
+# Django migrations (optional: ignore migrations/__pychace__/ except __init__.py)
 !**/migrations/__init__.py
+
+# Ignore __pycache__ folders inside migrations
+**/migrations/__pycache__/
