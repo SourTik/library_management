@@ -1,0 +1,41 @@
+{% extends 'library/base.html' %}
+
+{% block title %} Update Member {% endblock title %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-dark shadow-sm">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3 class="mb-0"><i class="bi bi-person-gear">Update Member Details</i></h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset>
+                            <legend class="text-muted">Member Information</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-outline-dark btn-lg">
+                                <i class="bi bi-download"> Save Changes</i>
+                            </button>
+                            <a href="{% url 'member_list' %}" class="btn btn-outline-secondary btn-lg">
+                                <i class="bi bi-arrow-left"> Cancel Changes</i>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    Please ensure all details are accurate before saving.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

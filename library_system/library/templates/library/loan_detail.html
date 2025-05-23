@@ -1,0 +1,49 @@
+{% extends 'library/base.html' %}
+
+
+{% block title %} {member.full_name} Loan {% endblock title %}
+
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row flex justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-dark shadow-sm">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3 class="mb-0"><i class="bi bi-file-text">Loan Details</i></h3>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3 class="text-capaitalize fw-bold">{{ loan.member.full_name }} | {{ loan.book.shelf.name }} |
+                            {{loan.book.title}}
+                        </h3>
+                        <hr class="my-4">
+                        <p class="text-muted"><strong>Borrow Date: </strong>{{ loan.borrow_date }}</p>
+                        <p class="text-muted"><strong>Return Date: </strong>{{ loan.return_date }}</p>
+                        <p class="text-muted"><strong>Due Date: </strong>{{ loan.due_date }}</p>
+                    </div>
+                </div>
+                {% if request.user.is_staff %}
+                <div class="card-footer bg-light text-center vstack gap-2 col-md-5 mx-auto">
+                    <a class="btn btn-outline-dark me-2" href="{% url 'loan_update' loan.id %}">
+                        <i class="bi bi-pencil"> Update</i>
+                    </a>
+                    <a class="btn btn-outline-danger me-2" href="{% url 'loan_delete' loan.id %}">
+                        <i class="bi bi-trash"> Delete</i>
+                    </a>
+                    <a class="btn btn-outline-secondary me-2" href="{% url 'loan_list' %}">
+                        <i class="bi bi-arrow-left"> Back to Loan</i>
+                    </a>
+                </div>
+                {% else %}
+                <div class="card-footer bg-light text-center">
+                    <p class="text-danger">Only administrators can update or delete this Loan.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

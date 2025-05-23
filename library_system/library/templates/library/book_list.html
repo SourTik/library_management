@@ -1,0 +1,29 @@
+{% extends 'library/base.html' %}
+
+{% block title %} Books {% endblock title %}
+
+{% block content %}
+{% for shelf, books in books_by_shelf %}
+<h4 class="mt-4 mb-3 text-primary fw-bold border-bottom pb-1 text-center">{{ shelf.name|default:"No Shelf" }}</h4>
+<div class="row g-2 justify-content-center">
+    {% for book in books %}
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+        <div class="card shadow-sm bg-light h-100 border-0">
+            {% if book.image %}
+            <img src="{{ book.image.url }}" class="card-img-top rounded-top" alt="{{ book.title }}">
+            {% else %}
+            <img src="https://via.placeholder.com/120x180?text=No+Image" class="card-img-top rounded-top" alt="No Image"
+                style="width:100%; height:180px; object-fit:cover;">
+            {% endif %}
+            <div class="card-body p-2 d-flex flex-column">
+                <h6 class="card-title mb-1 text-truncate">{{ book.title }}</h6>
+                <p class="card-text small mb-2 text-muted">{{ book.description|truncatewords:12 }}</p>
+                <p class="card-text small mb-2 text-muted">Copies: {{ book.available_copies }}</p>
+                <a href="{% url 'book_detail' book.id %}" class="btn btn-primary btn-sm mt-auto w-100">View Book</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+{% endblock %}

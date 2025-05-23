@@ -1,0 +1,30 @@
+# Ignore virtual environment folder
+env/
+
+# Ignore the secret .env file
+library_system/.env
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# SQLite database
+*.sqlite3
+
+# Log files
+*.log
+
+# Editor folders
+.vscode/
+.idea/
+
+# macOS files
+.DS_Store
+
+# Django static/media folders (optional)
+staticfiles/
+media/
+
+# Django migrations (optional: ignore migrations except __init__.py)
+**/migrations/*.py
+!**/migrations/__init__.py

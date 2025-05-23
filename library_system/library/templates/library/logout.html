@@ -1,0 +1,23 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Logged Out{% endblock %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-dark bg-shadow-sm">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3 class="mb-0"><i class="bi bi-box-arrow-right"></i> Logged Out</h3>
+                </div>
+                <div class="card-body text-center">
+                    <h4 class="mb-4">You have been logged out.</h4>
+                    <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="bi bi-box-arrow-in-right"></i> Login Again
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

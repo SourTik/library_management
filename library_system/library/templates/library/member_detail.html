@@ -1,0 +1,44 @@
+{% extends 'library/base.html' %}
+
+{% block title %} {{ member.full_name }} {% endblock title %}
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-dark shadow-sm">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3 class="mb-0"><i class="bi bi-file-text">Member Details</i></h3>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3 class="text-capitalize fw-bold">{{ member.full_name }}</h3>
+                        <hr class="my-4">
+                        <p class="text-muted"><strong>Library Card: </strong> {{ member.library_card_number }}</p>
+                        <p class="text-muted"><strong>Join Date: </strong> {{ member.join_date }}</p>
+                    </div>
+                </div>
+                {% if request.user.is_staff %}
+                <div class="card-footer bg-light text-center vstack gap-2 col-md-5 mx-auto">
+                    <a class="btn btn-outline-dark me-2" href="{% url 'member_update' member.id %}">
+                        <i class="bi bi-pencil"> Update</i>
+                    </a>
+                    <a class="btn btn-outline-danger me-2" href="{% url 'member_delete' member.id %}">
+                        <i class="bi bi-trash"> Delete</i>
+                    </a>
+                    <a class="btn btn-outline-secondary me-2" href="{% url 'member_list' %}">
+                        <i class="bi bi-arrow-left"> Back to Members</i>
+                    </a>
+                </div>
+                {% else %}
+                <div class="card-footer bg-light text-center">
+                    <p class="text-danger">Only administrators can update or delete this member.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
