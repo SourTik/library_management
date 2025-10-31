@@ -1,16 +1,16 @@
 # Django Library Management System
 
-A functional Library Management System built with Django to efficiently handle books, students, and borrowing activities. The system provides a simple and user-friendly interface for managing all library operations, from book registration to tracking borrowed items.
+A functional Library Management System built with Django to efficiently handle books, Patrons, and borrowing activities. The system provides a simple and user-friendly interface for managing all library operations, from book registration to tracking borrowed items.
 
 ---
 
 ## Features
 
 - Book Management – Add, update, view, and delete book records.  
-- Student Management – Register and manage student information.  
+- Patron Management – Register and manage patron information.  
 - Borrow and Return System – Track borrowed and returned books.  
 - Admin Dashboard – Manage users, books, and transactions via Django’s built-in admin panel.  
-- Search Functionality – Search for books or students by name or ID.  
+- Search Functionality – Search for books or authors by name.  
 - Due Date Tracking – View overdue books and their return status.
 
 ---
@@ -76,7 +76,7 @@ Follow these steps to set up the project locally:
 ## Future Enhancements
 
 - Email reminders for due or overdue books  
-- Student dashboard for viewing borrowed books  
+- Patron dashboard for viewing borrowed books  
 - Fine calculation system  
 - REST API integration for mobile or frontend apps
 
